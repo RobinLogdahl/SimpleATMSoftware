@@ -10,5 +10,10 @@ namespace SimpleATMSoftware
         private static database _instance=new database();
         public List<int> ExistingCreditcards = new List<int>();
 
+
+        public static database GetDatabase()
+        {
+            return _instance;
+        }
     }
 }
