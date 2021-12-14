@@ -9,10 +9,15 @@ namespace SimpleATMSoftware
     class Creditcards
     {
       
-        public int cardnumber;
+        public int cardnumber { get; set; }
+        private int pin;
         public Creditcards(int number)
         {
             cardnumber = number;
+        }
+       public bool checkpin(int code)
+        {
+            return (code == pin ? true : false);
         }
     }
 }

@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace SimpleATMSoftware
 {
-    class CreditcardCreator : Creditcards
+    class CreditcardCreator
     {
+        database data;
         public CreditcardCreator()
         {
-            var database = database.
-            while (true)
-            {
-                Random random = new Random();
-                
+            data= database.GetDatabase();
+        }
+        public void CreateCard()
+        {
+            Random random = new Random();
 
-                //int randomNumber = newCreditcardNumber.Next(100000000, 999999999);
-                int randomCreditcardNumber = random.Next(1, 3);
-                if (ExistingCreditcards.Contains(randomCreditcardNumber))
+            for (int i = 0; i < 10; i++)
+            {
+                int randomCreditcardNumber = random.Next(1, 10);
+                if (data.ExistingCreditcards.Contains(randomCreditcardNumber))
                 {
                     Console.WriteLine("Creditcardnumber already in use, creating a new number...");
                     continue;
@@ -26,13 +28,20 @@ namespace SimpleATMSoftware
 
                 else
                 {
-                    ExistingCreditcards.Add(randomCreditcardNumber);
+                    data.ExistingCreditcards.Add(randomCreditcardNumber);
                     Console.WriteLine($"Creditcard with number {randomCreditcardNumber} created.");
                     break;
                 }
             }
-
+            Console.ReadLine();
         }
 
+
+
+        //int randomNumber = newCreditcardNumber.Next(100000000, 999999999);
+
+
     }
+
 }
+
